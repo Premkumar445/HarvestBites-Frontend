@@ -1,9 +1,13 @@
+/* ✅ IMPORTANT: @import MUST be the FIRST line */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
-
+/* =======================
+   🌾 BASE THEME VARIABLES
+   ======================= */
 @layer base {
   :root {
     /* Warm, earthy palette inspired by millets and Indian heritage */
@@ -62,6 +66,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* 🌙 Dark mode */
   .dark {
     --background: 30 20% 8%;
     --foreground: 40 30% 92%;
@@ -102,6 +107,9 @@
   }
 }
 
+/* =======================
+   🔤 BASE ELEMENT STYLES
+   ======================= */
 @layer base {
   * {
     @apply border-border;
@@ -116,6 +124,9 @@
   }
 }
 
+/* =======================
+   🧰 UTILITIES
+   ======================= */
 @layer utilities {
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
@@ -127,7 +138,9 @@
   }
 }
 
-/* Custom animations */
+/* =======================
+   🎞️ ANIMATIONS
+   ======================= */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -174,11 +187,6 @@
 .animation-delay-500 { animation-delay: 500ms; }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
-
