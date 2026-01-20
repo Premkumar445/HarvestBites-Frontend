@@ -528,7 +528,7 @@ export default function Checkout() {
                       className="w-full h-13 justify-start gap-3 border-2 text-base"
                     >
                       <CreditCard className="h-6 w-6" />
-                      <span>Cards / UPI / Netbanking (Razorpay)</span>
+                      <span>Cards / UPI / Netbanking (Easebuzz)</span>
                       <span className="ml-auto text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full">Recommended</span>
                     </Button>
                     
@@ -641,7 +641,7 @@ export default function Checkout() {
                       : activeStep === 2
                       ? "Continue to Payment"
                       : activeStep === 3
-                      ? `Review Order → ₹${total.toLocaleString()}`
+                      ? "Review Order"
                       : `Continue`}
                   </Button>
                   {activeStep > 1 && (
