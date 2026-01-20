@@ -553,9 +553,7 @@ export default function Checkout() {
                     >
                       <CreditCard className="h-6 w-6 flex-shrink-0" />
                       <span className="flex-1">Cards/UPI/Netbanking</span>
-                      <span className="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-xs font-bold">
-                        ✅ Recommended
-                      </span>
+                    
                     </Button>
                   </div>
 
