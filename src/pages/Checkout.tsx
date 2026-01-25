@@ -370,7 +370,7 @@ export default function Checkout() {
                 </div>
               )}
 
-              {/* STEP 2 - Address - MOBILE OPTIMIZED */}
+              {/* STEP Address - MOBILE OPTIMIZED */}
               {activeStep === 2 && (
                 <div className="bg-white/95 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-xl">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
@@ -387,20 +387,7 @@ export default function Checkout() {
                     </div>
                   </div>
 
-                  {/* GPS Button - Always Top */}
-                  <div className="flex flex-col sm:flex-row gap-3 mb-6 p-4 bg-emerald-50 rounded-xl border-2 border-emerald-200">
-                    <Button 
-                      type="button" 
-                      onClick={handleUseCurrentLocation} 
-                      disabled={isProcessing}
-                      className="flex-1 h-12 bg-emerald-600 hover:bg-emerald-700 text-sm sm:text-base font-semibold text-white shadow-lg"
-                    >
-                      📍 {isProcessing ? "Detecting..." : "Use My Location"}
-                    </Button>
-                    <p className="text-xs sm:text-sm text-emerald-800 text-center sm:text-left flex-1 flex items-center">
-                      Auto-fills address from GPS
-                    </p>
-                  </div>
+                  
 
                   {/* Simplified Mobile Address Form */}
                   <div className="space-y-4">
@@ -548,7 +535,7 @@ export default function Checkout() {
                   <div className="space-y-4 mb-8">
                     <Button
                       type="button"
-                      onClick={() => setPaymentMethod("razorpay")}
+                      onClick={() => setPaymentMethod("Easebuzz")}
                       className="w-full h-14 justify-start gap-4 p-4 border-2 text-emerald-800  border-emerald-200 hover:bg-emerald-100 text-left text-base font-semibold shadow-md"
                     >
                       <CreditCard className="h-6 w-6 flex-shrink-0" />
@@ -643,7 +630,7 @@ export default function Checkout() {
                     <span>Total</span>
                     <span>₹{total.toLocaleString()}</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-emerald-700 mt-1">2-4 days delivery</p>
+                  
                 </div>
 
                 {/* Action Buttons */}
@@ -655,12 +642,12 @@ export default function Checkout() {
                     className="w-full h-14 text-lg font-bold shadow-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-2xl transform hover:-translate-y-0.5 transition-all"
                   >
                     {isProcessing
-                      ? "⏳ Processing..."
+                      ? "Processing..."
                       : activeStep === 1
-                      ? "➡️ Continue to Address"
+                      ? " Continue to Address"
                       : activeStep === 2
-                      ? "💳 Continue to Payment" 
-                      : "✅ Place Order"
+                      ? "Continue to Payment" 
+                      : "Place Order"
                     }
                   </Button>
                   
@@ -671,7 +658,7 @@ export default function Checkout() {
                       onClick={prevStep} 
                       className="w-full h-12 border-emerald-300 text-emerald-700 hover:bg-emerald-50 font-semibold"
                     >
-                      ← Previous Step
+                      ← Back
                     </Button>
                   )}
                 </div>

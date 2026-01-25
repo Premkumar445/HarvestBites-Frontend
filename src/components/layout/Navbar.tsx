@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-  Menu,
-  X,
-  ShoppingBag,
-  User,
-  Heart,
-  LogOut,
-} from "lucide-react";
+import { Menu, X, ShoppingBag, User, LogOut, Search } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
@@ -15,9 +8,15 @@ import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/harvestbiteslogo.png";
 
-const navLinks = [
+const desktopNavLinks = [
   { name: "Home", path: "/" },
-  { name: "Shop Now", path: "/shop" },
+  { name: "Products", path: "/shop" },
+  { name: "Contact", path: "/contact" },
+];
+
+const mobileNavLinks = [
+  { name: "Home", path: "/" },
+  { name: "Products", path: "/shop" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
   { name: "FAQ", path: "/faq" },
@@ -26,6 +25,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { itemCount, setIsCartOpen } = useCart();
@@ -39,46 +39,34 @@ export function Navbar() {
 
   return (
     <>
-      {/* Top news / offer bar */}
-<div className="w-full bg-gradient-to-b from-[#1B441F] to-[#1B441F] text-white text-sm md:text-base">
-  <div className="container mx-auto px-8 h-12 md:h-14 flex items-center justify-center overflow-hidden">
-    <p className="whitespace-nowrap animate-[marquee_40s_linear_infinite] font-semibold">
-      Free delivery for orders above ₹499 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      New millet cookie combo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      launched Limited‑time festival offers on family packs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Free delivery for orders above ₹499 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      New millet cookie combo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      launched Limited‑time festival offers on family packs
-    </p>
-  </div>
-</div>
+      {/* TOP OFFER BAR */}
+      <div className="w-full bg-[#1B441F] text-white text-sm">
+        <div className="container mx-auto h-12 flex items-center justify-center overflow-hidden">
+          <p className="whitespace-nowrap animate-[marquee_40s_linear_infinite] font-semibold">
+            Free delivery above ₹499 • Festival offers live • New millet combo launched
+          </p>
+        </div>
+      </div>
 
-
-
-      {/* Main navbar */}
-      <nav className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 text-emerald-900">
+      {/* NAVBAR */}
+      <nav className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur">
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo (PNG) */}
-            <Link to="/" className="flex items-center gap-2 group">
-              <img
-                src={logo}
-                alt="Harvest Bites Logo"
-                className="h-16 w-auto object-contain transition-transform group-hover:scale-110"
-              />
+
+            {/* LOGO */}
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="Logo" className="h-16 object-contain" />
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-10">
-              {navLinks.map((link) => (
+            {/* DESKTOP NAV LINKS */}
+            <div className="hidden md:flex items-center gap-8">
+              {desktopNavLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    "relative font-medium text-base md:text-lg transition-colors text-emerald-900 hover:text-emerald-700",
-                    location.pathname === link.path
-                      ? "underline underline-offset-4"
-                      : ""
+                    "text-base font-medium hover:text-emerald-600 transition-colors py-2",
+                    location.pathname === link.path && "text-emerald-600 border-b-2 border-emerald-600"
                   )}
                 >
                   {link.name}
@@ -86,196 +74,154 @@ export function Navbar() {
               ))}
             </div>
 
-            {/* Desktop Cart + Account */}
-            <div className="hidden md:flex items-center gap-4">
-              {/* Cart */}
+            {/* DESKTOP SEARCH */}
+            <div className="hidden md:flex flex-1 justify-center max-w-md">
+              <div className="relative w-full">
+                <input
+                  placeholder="Search products..."
+                  className="w-full px-4 py-2 border rounded-full text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                />
+              </div>
+            </div>
+
+            {/* DESKTOP NAV - CART + ACCOUNT */}
+            <div className="hidden md:flex items-center gap-6">
+              {/* CART */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative flex items-center gap-1.5 px-3 py-1.5 hover:bg-emerald-50 rounded-full transition-colors text-base font-medium text-emerald-900"
+                className="relative flex items-center gap-2 px-4 py-2 hover:bg-emerald-50 transition-colors rounded-lg"
               >
-                <div className="relative">
-                  <ShoppingBag className="h-5 w-5" />
-                  {itemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 h-4 w-4 bg-emerald-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                      {itemCount}
-                    </span>
-                  )}
-                </div>
-                <span>Cart</span>
+                <ShoppingBag className="h-5 w-5 text-emerald-600" />
+                <span className="font-medium text-sm">Cart ({itemCount})</span>
               </button>
 
-              {/* LOGIN vs MY ACCOUNT */}
+              {/* DESKTOP ACCOUNT DROPDOWN */}
               {isLoggedIn ? (
                 <div className="relative">
                   <button
-                    type="button"
-                    onClick={() => setIsAccountOpen((p) => !p)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-emerald-50 transition-colors text-base font-medium text-emerald-900"
+                    onClick={() => setIsAccountOpen(!isAccountOpen)}
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-emerald-50 transition-colors rounded-lg"
                   >
-                    <Avatar className="h-7 w-7">
-                      <AvatarFallback>
-                        {user?.name?.[0] || <User className="h-4 w-4" />}
+                    <Avatar className="h-9 w-9">
+                      <AvatarFallback className="bg-emerald-600 text-white font-bold text-sm">
+                        {user?.name?.[0]?.toUpperCase() || "U"}
                       </AvatarFallback>
                     </Avatar>
-                    <span>My Account</span>
+                    <span className="font-medium text-sm">My Account</span>
                   </button>
 
+                  {/* DESKTOP ACCOUNT MENU */}
                   {isAccountOpen && (
-                    <div
-                      className="absolute right-0 mt-2 w-64 rounded-md border border-gray-200 bg-white text-emerald-900 shadow-xl text-sm overflow-hidden z-50"
-                      onMouseLeave={() => setIsAccountOpen(false)}
-                    >
-                      <div className="h-1 bg-emerald-500" />
-                      <div className="flex flex-col">
-                        <Link
-                          to="/account/profile"
-                          className="flex items-center gap-3 px-4 py-2 hover:bg-emerald-50 cursor-pointer"
-                          onClick={() => setIsAccountOpen(false)}
-                        >
-                          <User className="h-4 w-4 text-emerald-500" />
-                          <span>My Profile</span>
-                        </Link>
-                        
-                        <button
-                          type="button"
-                          className="flex items-center gap-3 px-4 py-2 hover:bg-red-50 text-red-500 cursor-pointer"
-                          onClick={handleLogout}
-                        >
-                          <LogOut className="h-4 w-4" />
-                          <span>Logout</span>
-                        </button>
-                      </div>
+                    <div className="absolute right-0 mt-2 w-60 bg-white rounded-xl shadow-2xl border z-50">
+                      <Link
+                        to="/account/profile"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-emerald-50 rounded-t-xl"
+                        onClick={() => setIsAccountOpen(false)}
+                      >
+                        <User className="h-5 w-5 text-emerald-600" />
+                        My Profile
+                      </Link>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-b-xl"
+                      >
+                        <LogOut className="h-5 w-5" />
+                        Logout
+                      </button>
                     </div>
                   )}
                 </div>
               ) : (
-                <Button 
-                  asChild 
-                  variant="outline" 
-                  size="sm" 
-                  className="border-emerald-500 text-emerald-900 hover:bg-emerald-50"
-                >
+                <Button asChild variant="outline">
                   <Link to="/login">Login</Link>
                 </Button>
               )}
             </div>
 
-            {/* Mobile Cart + Account + Menu */}
+            {/* MOBILE ICONS */}
             <div className="flex md:hidden items-center gap-2">
-              {/* Mobile Account */}
-              {isLoggedIn ? (
+              {/* MOBILE SEARCH ICON */}
+              <button
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="p-2 rounded-full hover:bg-emerald-50"
+              >
+                <Search className="h-5 w-5" />
+              </button>
+
+              {isLoggedIn && (
                 <div className="relative">
                   <button
-                    type="button"
-                    onClick={() => setIsAccountOpen((p) => !p)}
-                    className="flex items-center gap-1.5 px-2 py-1 rounded-full hover:bg-emerald-50 transition-colors text-sm font-medium text-emerald-900"
+                    onClick={() => setIsAccountOpen(!isAccountOpen)}
+                    className="p-0 bg-transparent border-0 shadow-none outline-none"
                   >
-                    <Avatar className="h-7 w-7">
-                      <AvatarFallback>
-                        {user?.name?.[0] || <User className="h-4 w-4" />}
+                    <Avatar className="h-10 w-10">
+                      <AvatarFallback className="bg-emerald-600 text-white font-bold text-sm">
+                        {user?.name?.[0]?.toUpperCase() || "U"}
                       </AvatarFallback>
                     </Avatar>
                   </button>
 
                   {isAccountOpen && (
-                    <div
-                      className="absolute right-0 mt-2 w-56 rounded-md border border-gray-200 bg-white text-emerald-900 shadow-xl text-xs overflow-hidden z-50"
-                      onMouseLeave={() => setIsAccountOpen(false)}
-                    >
-                      <div className="h-1 bg-emerald-500" />
-                      <div className="flex flex-col">
-                        <Link
-                          to="/account/profile"
-                          className="flex items-center gap-3 px-3 py-2 hover:bg-emerald-50 cursor-pointer"
-                          onClick={() => setIsAccountOpen(false)}
-                        >
-                          <User className="h-4 w-4 text-emerald-500" />
-                          <span>My Profile</span>
-                        </Link>
-                        
-                        <Link
-                          to="/wishlist"
-                          className="flex items-center gap-3 px-3 py-2 hover:bg-emerald-50 cursor-pointer"
-                          onClick={() => setIsAccountOpen(false)}
-                        >
-                          <Heart className="h-4 w-4 text-emerald-500" />
-                          <span>Wishlist</span>
-                        </Link>
-                        <button
-                          type="button"
-                          className="flex items-center gap-3 px-3 py-2 hover:bg-red-50 text-red-500 cursor-pointer"
-                          onClick={handleLogout}
-                        >
-                          <LogOut className="h-4 w-4" />
-                          <span>Logout</span>
-                        </button>
-                      </div>
+                    <div className="absolute right-0 mt-2 w-60 bg-white rounded-xl shadow-2xl border z-50">
+                      <Link
+                        to="/account/profile"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-emerald-50 rounded-t-xl"
+                        onClick={() => setIsAccountOpen(false)}
+                      >
+                        <User className="h-5 w-5 text-emerald-600" />
+                        My Profile
+                      </Link>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-b-xl"
+                      >
+                        <LogOut className="h-5 w-5" />
+                        Logout
+                      </button>
                     </div>
                   )}
                 </div>
-              ) : (
-                <Button 
-                  asChild 
-                  variant="outline" 
-                  size="sm" 
-                  className="px-3 py-1 border-emerald-500 text-emerald-900 hover:bg-emerald-50 text-sm"
-                >
-                  <Link to="/login">Login</Link>
-                </Button>
               )}
 
-              {/* Cart */}
+              {/* CART */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative flex items-center gap-1 px-2 py-1 hover:bg-emerald-50 rounded-full transition-colors text-sm font-medium text-emerald-900"
+                className="relative p-2 rounded-full hover:bg-emerald-50"
               >
-                <div className="relative">
-                  <ShoppingBag className="h-5 w-5" />
-                  {itemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 h-4 w-4 bg-emerald-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                      {itemCount}
-                    </span>
-                  )}
-                </div>
+                <ShoppingBag className="h-5 w-5" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-4 w-4 bg-emerald-600 text-white text-[10px] rounded-full flex items-center justify-center">
+                    {itemCount}
+                  </span>
+                )}
               </button>
 
-              {/* Hamburger */}
+              {/* MENU */}
               <button
-                className="p-2 text-emerald-900"
                 onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle menu"
+                className="p-2 rounded-full hover:bg-emerald-50"
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isOpen ? <X /> : <Menu />}
               </button>
             </div>
           </div>
 
-          {/* Mobile nav links */}
+          {/* MOBILE MENU */}
           {isOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200 bg-white">
-              <div className="flex flex-col gap-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "py-2 font-medium text-base transition-colors text-emerald-900 hover:text-emerald-700",
-                      location.pathname === link.path
-                        ? "underline underline-offset-4"
-                        : ""
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-                <Button className="mt-2 text-base bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-2 rounded-lg relative" asChild>
-                  <Link to="/shop" onClick={() => setIsOpen(false)} className="relative">
-                    <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
-                    Shop Now
-                  </Link>
-                </Button>
-              </div>
+            <div className="md:hidden py-4 border-t bg-white">
+              {mobileNavLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "block py-3 px-4 text-base font-medium hover:bg-emerald-50",
+                    location.pathname === link.path && "bg-emerald-50 text-emerald-600"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
           )}
         </div>
@@ -283,4 +229,5 @@ export function Navbar() {
     </>
   );
 }
+
 export default Navbar;

@@ -1,5 +1,10 @@
 // src/types/product.ts
 
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export type Product = {
   id: number;
   name: string;
@@ -17,5 +22,25 @@ export type Product = {
   premiumPrice?: number;
   
   image?: string;        // main image (already there)
-  images?: string[];     // new: gallery images
-};
+  images?: string[]; 
+  productReviews?: Array<{
+    name: string;
+    rating: number;
+    comment: string;
+    productAspect: string;
+    timeAgo: string;
+  }>;
+  
+  ratingData?: Array<{
+    stars: number;
+    count: number;
+    percentage: number;
+  }>;
+  
+  totalReviews?: number;
+  avgRating?: number;
+
+  // 🔥 ADD FAQ FIELD
+  faqs?: FAQ[];
+}    // new: gallery images
+;

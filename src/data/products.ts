@@ -5,8 +5,7 @@ import ProductImg11 from "@/assets/products/ProductImg11.png";
 import ProductImg22 from "@/assets/products/ProductImg22.png";
 import ProductImg33 from "@/assets/products/ProductImg33.png";
 import ProductImg44 from "@/assets/products/ProductImg44.png";
-import foxtailBalance from "@/assets/products/foxtail-balance.png";
-import littleMilletJoy from "@/assets/products/little-millet-joy.png";
+import ProductImg55 from "@/assets/products/ProductImg55.png";
 
 // Single pack extra gallery images
 import ragi1 from "@/assets/products/ragi-1.png";
@@ -34,26 +33,15 @@ import foxtail2 from "@/assets/products/foxtail-2.png";
 import foxtail3 from "@/assets/products/foxtail-3.png";
 import foxtail4 from "@/assets/products/foxtail-4.png";
 
-import little1 from "@/assets/products/little-1.png";
-import little2 from "@/assets/products/little-2.png";
-import little3 from "@/assets/products/little-3.png";
-import little4 from "@/assets/products/little-4.png";
-
 // Combo pack main images
 import ComboImg from "@/assets/combos/ComboImg.png";
-
-
-// Combo gallery images (create these files as needed)
 import Combo1 from "@/assets/combos/Combo1.png";
 import Combo2 from "@/assets/combos/Combo2.png";
 import Combo3 from "@/assets/combos/Combo3.png";
 import Combo4 from "@/assets/combos/Combo4.png";
 
-
-
-// ---------- Single products ----------
-
 export const products: Product[] = [
+  // 🔥 GUT (Ragi) - ID: 1
   {
     id: 1,
     name: "Gut",
@@ -62,8 +50,7 @@ export const products: Product[] = [
     rating: 4.9,
     reviews: 128,
     benefit: "Digestion . Microbiome . Comfort",
-    description:
-      "Good for health",
+    description: "Good for health",
     tags: ["Kids Favorite", "High Calcium"],
     ingredients: [
       "Organic Ragi (Finger Millet) Flour",
@@ -85,7 +72,34 @@ export const products: Product[] = [
     premiumPrice: 239,
     image: ProductImg11,
     images: [ragi1, ragi2, ragi3, ragi4],
+    
+    // 🔥 GUT SPECIFIC FAQs
+    faqs: [
+      { question: "How many cookies per day?", answer: "2-3 cookies daily as evening snack." },
+      { question: "Safe for kids?", answer: "Yes! Perfect for kids above 3 years." },
+      { question: "Helps with constipation?", answer: "Yes, high fibre content aids digestion." },
+      { question: "Storage instructions?", answer: "Cool dry place. Shelf life: 4 months." },
+      { question: "Is it gluten free?", answer: "100% gluten free - pure ragi flour." },
+      { question: "Can diabetics eat?", answer: "Yes, low GI with jaggery sweetener." }
+    ],
+    
+    productReviews: [
+      { name: "Siddharth", rating: 5, comment: "Gut cookies digestion super!", productAspect: "Packaging", timeAgo: "2 months ago" },
+      { name: "Shankar", rating: 5, comment: "Best for microbiome health!", productAspect: "Digestion", timeAgo: "1 month ago" },
+      { name: "Lakshmi", rating: 4, comment: "Kids love the taste!", productAspect: "Taste", timeAgo: "3 weeks ago" }
+    ],
+    ratingData: [
+      { stars: 5, count: 110, percentage: 86 },
+      { stars: 4, count: 12, percentage: 9 },
+      { stars: 3, count: 4, percentage: 3 },
+      { stars: 2, count: 1, percentage: 1 },
+      { stars: 1, count: 1, percentage: 1 }
+    ],
+    totalReviews: 128,
+    avgRating: 4.9
   },
+
+  // 🔥 BRAIN (Jowar) - ID: 2
   {
     id: 2,
     name: "Brain",
@@ -94,8 +108,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviews: 96,
     benefit: "Heart Friendly",
-    description:
-      "Low GI, high fibre cookies ideal for maintaining steady energy levels.",
+    description: "Low GI, high fibre cookies ideal for maintaining steady energy levels.",
     tags: ["Low GI", "High Fibre"],
     ingredients: [
       "Organic Jowar (Sorghum) Flour",
@@ -117,7 +130,34 @@ export const products: Product[] = [
     premiumPrice: 219,
     image: ProductImg22,
     images: [jowar1, jowar2, jowar3, jowar4],
+    
+    // 🔥 BRAIN SPECIFIC FAQs
+    faqs: [
+      { question: "Helps with focus?", answer: "Yes! Jowar provides steady energy for brain." },
+      { question: "Best time to eat?", answer: "Morning breakfast or afternoon snack." },
+      { question: "Memory improvement?", answer: "Regular consumption supports cognitive health." },
+      { question: "No refined sugar?", answer: "Uses coconut sugar - natural low GI." },
+      { question: "How many daily?", answer: "2-4 cookies depending on activity level." },
+      { question: "Shelf life?", answer: "4 months in cool dry place." }
+    ],
+    
+    productReviews: [
+      { name: "Jai", rating: 4, comment: "Brain cookies focus improve!", productAspect: "Energy", timeAgo: "3 weeks ago" },
+      { name: "Pakkiya", rating: 5, comment: "Husband ku perfect!", productAspect: "Memory", timeAgo: "2 weeks ago" },
+      { name: "Ravi", rating: 5, comment: "Study time boost!", productAspect: "Concentration", timeAgo: "1 week ago" }
+    ],
+    ratingData: [
+      { stars: 5, count: 75, percentage: 78 },
+      { stars: 4, count: 15, percentage: 16 },
+      { stars: 3, count: 4, percentage: 4 },
+      { stars: 2, count: 1, percentage: 1 },
+      { stars: 1, count: 1, percentage: 1 }
+    ],
+    totalReviews: 96,
+    avgRating: 4.8
   },
+
+  // 🔥 HEART (Bajra) - ID: 3
   {
     id: 3,
     name: "Heart",
@@ -126,8 +166,7 @@ export const products: Product[] = [
     rating: 4.7,
     reviews: 84,
     benefit: "Gut Health",
-    description:
-      "Traditional bajra goodness for digestive balance and sustained energy.",
+    description: "Traditional bajra goodness for digestive balance and sustained energy.",
     tags: ["Digestive Health", "Energy Boost"],
     ingredients: [
       "Organic Bajra (Pearl Millet) Flour",
@@ -149,17 +188,43 @@ export const products: Product[] = [
     premiumPrice: 245,
     image: ProductImg33,
     images: [bajra1, bajra2, bajra3, bajra4],
+    
+    // 🔥 HEART SPECIFIC FAQs
+    faqs: [
+      { question: "Good for heart?", answer: "Yes! Bajra helps maintain healthy cholesterol." },
+      { question: "Helps digestion?", answer: "Excellent! High fibre prevents constipation." },
+      { question: "BP patients can eat?", answer: "Yes, magnesium helps blood pressure control." },
+      { question: "How many daily?", answer: "2-3 cookies daily with meals." },
+      { question: "Natural sweetener?", answer: "100% date syrup - no refined sugar." },
+      { question: "Storage?", answer: "Cool dry place away from sunlight." }
+    ],
+    
+    productReviews: [
+      { name: "Ajay", rating: 5, comment: "Heart health improved!", productAspect: "Cholesterol", timeAgo: "4 months ago" },
+      { name: "Ravi", rating: 5, comment: "Daily energy boost!", productAspect: "Heart", timeAgo: "1 month ago" },
+      { name: "Suresh", rating: 4, comment: "Good for BP control!", productAspect: "Blood Pressure", timeAgo: "2 weeks ago" }
+    ],
+    ratingData: [
+      { stars: 5, count: 65, percentage: 77 },
+      { stars: 4, count: 14, percentage: 17 },
+      { stars: 3, count: 3, percentage: 4 },
+      { stars: 2, count: 1, percentage: 1 },
+      { stars: 1, count: 1, percentage: 1 }
+    ],
+    totalReviews: 84,
+    avgRating: 4.7
   },
+
+  // 🔥 BONE DENSITY (Multi Millet) - ID: 4
   {
     id: 4,
-    name: "Born Density",
+    name: "Bone Density",
     subtitle: "Functional Millet Cookies",
     price: 299,
     rating: 4.9,
     reviews: 156,
     benefit: "Complete Nutrition",
-    description:
-      "A harmonious blend of five ancient millets for comprehensive daily nutrition.",
+    description: "A harmonious blend of five ancient millets for comprehensive daily nutrition.",
     tags: ["Bestseller", "All Ages"],
     ingredients: [
       "Ragi, Jowar, Bajra, Foxtail, Little Millet Flour Blend",
@@ -181,7 +246,34 @@ export const products: Product[] = [
     premiumPrice: 279,
     image: ProductImg44,
     images: [multi1, multi2, multi3, multi4],
+    
+    // 🔥 BONE DENSITY SPECIFIC FAQs
+    faqs: [
+      { question: "Good for bones?", answer: "Yes! High calcium from multiple millets." },
+      { question: "Complete meal replacement?", answer: "Balanced nutrition for daily snack." },
+      { question: "All age groups?", answer: "Yes! Kids to elders - everyone benefits." },
+      { question: "5 millets mix?", answer: "Ragi+Jowar+Bajra+Foxtail+Little Millet." },
+      { question: "Daily consumption?", answer: "2-4 cookies daily for complete nutrition." },
+      { question: "Taste variation?", answer: "Balanced sweet taste all love." }
+    ],
+    
+    productReviews: [
+      { name: "Suresh", rating: 5, comment: "Complete family nutrition!", productAspect: "Nutrition", timeAgo: "3 months ago" },
+      { name: "Manoj", rating: 5, comment: "Kids love this multi-millet!", productAspect: "Taste", timeAgo: "2 weeks ago" },
+      { name: "Priya", rating: 5, comment: "Bone density improved!", productAspect: "Bone Health", timeAgo: "1 month ago" }
+    ],
+    ratingData: [
+      { stars: 5, count: 135, percentage: 87 },
+      { stars: 4, count: 15, percentage: 10 },
+      { stars: 3, count: 4, percentage: 2 },
+      { stars: 2, count: 1, percentage: 1 },
+      { stars: 1, count: 1, percentage: 1 }
+    ],
+    totalReviews: 156,
+    avgRating: 4.9
   },
+
+  // 🔥 PCOS/PCOD (Foxtail) - ID: 5
   {
     id: 5,
     name: "Pocd / Pcos",
@@ -190,8 +282,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviews: 72,
     benefit: "Blood Sugar Support",
-    description:
-      "Specifically crafted to support balanced blood sugar levels naturally.",
+    description: "Specifically crafted to support balanced blood sugar levels naturally.",
     tags: ["Diabetic Friendly", "Low Sugar"],
     ingredients: [
       "Organic Foxtail Millet Flour",
@@ -211,45 +302,37 @@ export const products: Product[] = [
     mrp: 319,
     discount: 16,
     premiumPrice: 259,
-    image: foxtailBalance,
+    image: ProductImg55,
     images: [foxtail1, foxtail2, foxtail3, foxtail4],
-  },
-  {
-    id: 6,
-    name: "Little Millet Joy",
-    subtitle: "Functional Millet Cookies",
-    price: 239,
-    rating: 4.6,
-    reviews: 64,
-    benefit: "Weight Management",
-    description:
-      "Light yet satisfying cookies perfect for mindful eating.",
-    tags: ["Light", "Satisfying"],
-    ingredients: [
-      "Organic Little Millet Flour",
-      "Monk Fruit Sweetener",
-      "Desi Ghee",
-      "Pumpkin Seeds",
-      "Ginger",
-      "Sea Salt",
+    
+    // 🔥 PCOS/PCOD SPECIFIC FAQs
+    faqs: [
+      { question: "Helps PCOS symptoms?", answer: "Yes! Low GI millet helps hormonal balance." },
+      { question: "Safe for diabetics?", answer: "Perfect! Lowest GI millet + stevia." },
+      { question: "Weight management?", answer: "High fibre helps control hunger." },
+      { question: "Turmeric benefits?", answer: "Anti-inflammatory - helps PCOS inflammation." },
+      { question: "How many daily?", answer: "2-3 cookies before meals." },
+      { question: "No white sugar?", answer: "Stevia + dates only - zero refined sugar." }
     ],
-    nutrition: [
-      { label: "Calories", value: "95 kcal" },
-      { label: "Protein", value: "2.5g" },
-      { label: "Fibre", value: "5g" },
-      { label: "Fat", value: "4g" },
-      { label: "Carbs", value: "14g" },
+    
+    productReviews: [
+      { name: "Priya", rating: 5, comment: "Blood sugar stable pannuthu!", productAspect: "Sugar Control", timeAgo: "1 month ago" },
+      { name: "Lakshmi", rating: 5, comment: "PCOS symptoms reduced!", productAspect: "Hormonal Balance", timeAgo: "3 weeks ago" },
+      { name: "Deepa", rating: 4, comment: "Weight management help!", productAspect: "Weight Control", timeAgo: "1 week ago" }
     ],
-    mrp: 289,
-    discount: 17,
-    premiumPrice: 229,
-    image: littleMilletJoy,
-    images: [little1, little2, little3, little4],
-  },
+    ratingData: [
+      { stars: 5, count: 58, percentage: 81 },
+      { stars: 4, count: 10, percentage: 14 },
+      { stars: 3, count: 2, percentage: 3 },
+      { stars: 2, count: 1, percentage: 1 },
+      { stars: 1, count: 1, percentage: 1 }
+    ],
+    totalReviews: 72,
+    avgRating: 4.8
+  }
 ];
 
-// ---------- Combo products ----------
-
+// 🔥 COMBO PACK - ID: 101
 export const comboPacks: Product[] = [
   {
     ...products[1],
@@ -257,13 +340,38 @@ export const comboPacks: Product[] = [
     name: "All-in-One Wellness Combo",
     subtitle: "All your wellness needs in one pack",
     price: 999,
-    mrp: 528,
-    discount: 15,
-    premiumPrice: 429,
+    mrp: 1528,
+    discount: 35,
+    premiumPrice: 849,
     image: ComboImg,
     images: [Combo1, Combo2, Combo3, Combo4],
+    
+    // 🔥 COMBO SPECIFIC FAQs
+    faqs: [
+      { question: "Combo la enna 5 products irukku?", answer: "Gut + Brain + Heart + Bone Density + PCOS cookies." },
+      { question: "Total savings?", answer: "Save ₹529 (35% OFF) + Free insulated bag." },
+      { question: "Same expiry date?", answer: "All manufactured same week - same expiry." },
+      { question: "Separate packaging?", answer: "Premium combo box with individual sealed packs." },
+      { question: "1 month supply?", answer: "Yes! Each pack has 15 cookies = 30 days." },
+      { question: "Delivery time?", answer: "2-3 days pan India. Free delivery on combo." },
+      { question: "Family use?", answer: "Perfect for family of 4 - complete nutrition." }
+    ],
+    
+    productReviews: [
+      { name: "Kumar", rating: 5, comment: "All 5 packs perfect combo!", productAspect: "Value", timeAgo: "1 month ago" },
+      { name: "Anita", rating: 5, comment: "Family ku complete nutrition!", productAspect: "Variety", timeAgo: "2 weeks ago" },
+      { name: "Ramesh", rating: 4, comment: "Great deal but heavy pack!", productAspect: "Packaging", timeAgo: "3 days ago" }
+    ],
+    ratingData: [
+      { stars: 5, count: 45, percentage: 82 },
+      { stars: 4, count: 8, percentage: 15 },
+      { stars: 3, count: 1, percentage: 2 },
+      { stars: 2, count: 0, percentage: 0 },
+      { stars: 1, count: 0, percentage: 1 }
+    ],
+    totalReviews: 54,
+    avgRating: 4.8
   },
 ];
-
 
 export const allProducts: Product[] = [...products, ...comboPacks];

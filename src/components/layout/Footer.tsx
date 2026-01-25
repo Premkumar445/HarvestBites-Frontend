@@ -132,7 +132,7 @@ export function Footer() {
             {/* Copyright */}
             <div className="text-center md:text-right space-y-1">
               <p className="text-sm text-secondary-foreground/60">
-                © 2024 Harvest Bites. All rights reserved.
+                © 2026 HarvestBites. All rights reserved.
               </p>
               <p className="text-sm text-secondary-foreground/60 italic font-display">
                 "HarvestBites – A Daily Food Ritual for Lifelong Health"
