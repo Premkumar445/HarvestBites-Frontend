@@ -541,7 +541,7 @@ export default function Checkout() {
                       <CreditCard className="h-6 w-6 flex-shrink-0" />
                       <span className="flex-1">Cards/UPI/Netbanking</span>
                     
-                    </Button>
+                    </Button>.
                   </div>
 
                   {/* Trust badges */}

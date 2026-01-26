@@ -39,14 +39,7 @@ export function Navbar() {
 
   return (
     <>
-      {/* TOP OFFER BAR */}
-      <div className="w-full bg-[#1B441F] text-white text-sm">
-        <div className="container mx-auto h-12 flex items-center justify-center overflow-hidden">
-          <p className="whitespace-nowrap animate-[marquee_40s_linear_infinite] font-semibold">
-            Free delivery above ₹499 • Festival offers live • New millet combo launched
-          </p>
-        </div>
-      </div>
+     
 
       {/* NAVBAR */}
       <nav className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur">
@@ -55,7 +48,7 @@ export function Navbar() {
 
             {/* LOGO */}
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Logo" className="h-16 object-contain" />
+              <img src={logo} alt="Logo" className="h-11 object-contain" />
             </Link>
 
             {/* DESKTOP NAV LINKS */}
