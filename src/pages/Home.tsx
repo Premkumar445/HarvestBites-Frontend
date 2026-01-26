@@ -110,7 +110,7 @@ function Home() {
             No Maida&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
             No Preservatives&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
             Low GI
-          </p>
+          </p> 
           <p className="whitespace-nowrap animate-[marquee_40s_linear_infinite] font-semibold tracking-wide 
                         text-base sm:text-lg md:text-xl">
             100% Millet Based&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;

@@ -19,9 +19,7 @@ export function CartSidebar() {
 
   const handleCheckoutClick = () => {
     setIsCartOpen(false);
-
     const token = localStorage.getItem("authToken");
-
     if (token) {
       navigate("/checkout");
     } else {
@@ -82,13 +80,24 @@ export function CartSidebar() {
             </div>
           ) : (
             <div className="space-y-4">
-              {items.map((item) => (
+              {items.map((item: any) => (
                 <div
                   key={item.id}
                   className="flex gap-4 p-4 bg-card rounded-xl border"
                 >
-                  <div className="h-20 w-20 bg-muted rounded-lg flex items-center justify-center">
-                    🍪
+                  {/* ✅ FIXED IMAGE SECTION - TypeScript Error Gone */}
+                  <div className="h-20 w-20 bg-muted rounded-lg overflow-hidden flex-shrink-0">
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-100 to-green-100">
+                        <ShoppingBag className="h-10 w-10 text-emerald-500" />
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex-1">
@@ -105,12 +114,12 @@ export function CartSidebar() {
                         onClick={() =>
                           updateQuantity(item.id, item.quantity - 1)
                         }
-                        className="h-8 w-8 bg-muted rounded-full"
+                        className="h-8 w-8 bg-muted rounded-full hover:bg-muted/80"
                       >
                         <Minus size={14} />
                       </button>
 
-                      <span className="w-8 text-center">
+                      <span className="w-8 text-center font-medium">
                         {item.quantity}
                       </span>
 
@@ -118,7 +127,7 @@ export function CartSidebar() {
                         onClick={() =>
                           updateQuantity(item.id, item.quantity + 1)
                         }
-                        className="h-8 w-8 bg-muted rounded-full"
+                        className="h-8 w-8 bg-muted rounded-full hover:bg-muted/80"
                       >
                         <Plus size={14} />
                       </button>
@@ -151,7 +160,7 @@ export function CartSidebar() {
 
               <Button
                 onClick={handleCheckoutClick}
-                className="bg-gradient-to-r from-[#7b0000] to-[#b30000] text-white h-12"
+                className="bg-gradient-to-r from-[#7b0000] to-[#b30000] text-white h-12 hover:from-[#8c0000] hover:to-[#cc0000]"
               >
                 Checkout →
               </Button>

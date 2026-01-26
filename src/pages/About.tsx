@@ -7,6 +7,7 @@ import { useState } from "react";
 import aboutBanner from "@/assets/about/about-banner.png";
 import journeyImg from "@/assets/about/journey.png";
 import visionImg from "@/assets/about/vision.png";
+import videoBanner from "@/assets/banners/video-banner.png";
 
 const values = [
   {
@@ -72,11 +73,15 @@ export default function About() {
         <div className="fixed inset-0 opacity-3 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0icGFwZXIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC4yIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iMSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNwYXBlcikiLz48L3N2Zz4=')] pointer-events-none" />
 
         {/* Hero Banner */}
-        <section className="w-full relative z-10">
-          <div className="w-full h-[220px] sm:h-[300px] md:h-[400px] lg:h-[350px]">
-            <img src={aboutBanner} alt="Our story" className="w-full h-full object-cover" />
-          </div>
-        </section>
+        <section className="w-full bg-white">
+                <div className="w-full">
+                  <img
+                    src={videoBanner}
+                    alt="Customer Testimonials Banner"
+                    className="w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[400px] object-cover"
+                  />
+                </div>
+              </section>
 
         {/* Philosophy Section */}
         <section className="py-20 relative z-10 bg-white">
@@ -84,18 +89,16 @@ export default function About() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
                 <h2 className="font-display text-4xl md:text-3xl font-bold text-foreground">
-                  About Bisk Farm
+                  Our Story
                 </h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed text-lg md:text-xl">
                   <p>
-                    In traditional Indian households, food was never just about taste—it was medicine, it was love, it was daily care for the entire family. Grandmothers knew which grain to serve for what ailment, which spice would aid digestion, which seed would build strength.
+                    We are Harvestbites, a wholesome food brand crafted by Harvest Square. Founded in 2022, our journey began with a simple vision — to create nutritious, millet-based biscuits inspired by India’s rich agricultural heritage.
                   </p>
                   <p>
-                    Somewhere along the way, we lost this wisdom. Fast food replaced functional food. Convenience trumped nourishment. We started treating food as fuel and forgot that it could be so much more.
+                    Rooted in clean food values and traditional grains, Harvest Square was established with a deep respect for nature and the harvest it provides. As modern lifestyles evolved and the need for healthier snacking grew, we embraced innovation while staying true to the goodness of millets and honest ingredients.
                   </p>
-                  <p className="font-semibold text-foreground text-base md:text-lg">
-                    Harvest Bites is our humble attempt to bring that wisdom back—one cookie at a time.
-                  </p>
+                  
                 </div>
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/shop">
